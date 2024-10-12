@@ -9,15 +9,13 @@ clrscr;
 
     sum := 0;
     banyak := 0;
+    
     repeat
         write('Masukkan Sebuah Angka: '); readln(angka);
 
-        if (angka < 0) then
-            begin
-                break;
-            end
-
-        else if (angka > 0) then
+{Jika angka > 0 maka variabel 'banyak' sebagai penghitung banyak angka positif dimasukkan user akan bertambah 1. 
+NOTE : 0 bukan angka positif maupun negatif}
+        if (angka > 0) then 
         begin
             banyak := banyak + 1;   
             sum := sum + angka;
@@ -28,4 +26,5 @@ clrscr;
     write('Banyak Angka Positif Yang Dimasukkan: ', banyak);
     writeln;
     write('Hasil Dari Penjumlahan Angka Positif = ', sum);
+
 end.
