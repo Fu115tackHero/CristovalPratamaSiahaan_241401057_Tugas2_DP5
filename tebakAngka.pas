@@ -1,5 +1,5 @@
 program tebakAngka;
-uses crt;
+uses crt, SysUtils;
 
 var
     angka, kesempatan, tebakan : integer;
@@ -7,35 +7,39 @@ var
 begin
 clrscr;
 
-    angka := 7;
+    {generate angka random dari 1-10}
+    Randomize;
+    angka := Random(10) + 1;
+    
     kesempatan := 3;
 
     writeln('---------TEBAK ANGKA---------');
-
+    write('Kesempatan Anda: ', kesempatan);
+    writeln;
+    
     repeat
         write('Tebak Sebuah Angka (1 - 10) : '); readln(tebakan);
 
         if (tebakan = angka) then
-        begin
-            writeln('Selamat Anda Benar!');
-        end
+            begin
+                writeln('Selamat Anda Benar!');
+                break;
+            end
+        else
+            begin
+                writeln('Ups Anda Salah, Silahkan Coba lagi!');
+                kesempatan := kesempatan - 1;
+                write('Kesempatan Anda: ', kesempatan);
+                writeln;
+            end;
 
-        else 
-        begin
-            writeln('Ups Tebakan Anda Salah, Silahkan Coba Lagi!');
-            kesempatan := kesempatan - 1;
-        end;
+    until (kesempatan < 1);
 
-        if (kesempatan = 0) then
+    if (kesempatan < 1) then
         begin
-            writeln('Maaf, Anda Kalah');
-            write('Jawaban Yang Benar: ', angka);
+            write('Maaf Anda Kalah, Jawaban yang benar adalah ', angka);
             writeln;
-            break;
-        end
-
-
-    until (angka = tebakan);
+        end;
 
     writeln('Terimakasih Telah Bermain');
 
