@@ -14,9 +14,9 @@ clrscr;
     begin
         
         if (i mod 2 = 0) then
-        begin
-            write(i, ' ');
-        end;
+            begin
+                write(i, ' ');
+            end;
         
         i := i + 1;
     end;
